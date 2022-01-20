@@ -62,7 +62,7 @@ st.markdown('<p align="center" style=" font-size: 50px;"><b>장애인을 위한 
 select_event = st.sidebar.selectbox("선택하세요.", ("0️⃣ 서울시 공공체육시설 지도", "1️⃣ 농구장", "2️⃣ 배구장","3️⃣ 배드민턴장", "4️⃣ 수영장", "5️⃣ 실내체육관","6️⃣ 야구장","7️⃣ 족구장","8️⃣ 체력단련실","9️⃣ 축구장","1️⃣0️⃣ 테니스장","1️⃣1️⃣ 풋살장","1️⃣2️⃣ 기타"))
 
 ###########################데이터 처리 공간#################################################################
-sports=pd.read_excel("pydata/공유누리체육시설(서울).xlsx") # 본인 pc에 저장된 파일 경로 입력 필수!
+sports=pd.read_excel("files/공유누리체육시설(서울).xlsx") # 본인 pc에 저장된 파일 경로 입력 필수!
 sports=sports.drop(sports.columns[0],axis=1)
 
 #### 숫자열 형변환 후 문자열과 결합
@@ -89,7 +89,7 @@ sports=sports.replace(np.nan,"문의") #NaN 대체
 
 
 # 시군구 지리정보 불러오기
-seoul_gu = "서울특별시 시군구 위치 데이터(5179).geojson"
+seoul_gu = "files/서울특별시 시군구 위치 데이터(5179).geojson"
 seoul_gu = gpd.read_file(seoul_gu, encoding='euc-kr') # 본인 pc에 저장된 파일 경로 입력 필수!
 seoul_gu=seoul_gu.drop(['BASE_DATE'],axis=1)
 
@@ -160,7 +160,7 @@ def mapping(df_name,i,image):
     return folium_static(map)  
 #################################0️⃣ 서울시 공공체육시설 지도############################################
 if select_event == '0️⃣ 서울시 공공체육시설 지도':
-    HtmlFile = open("공공체육시설(서울) 클러스터링 시각화(최종).html", 'r',encoding='utf-8') # 본인 pc에 저장된 파일 경로 입력 필수!
+    HtmlFile = open("files/공공체육시설(서울) 클러스터링 시각화(최종).html", 'r',encoding='utf-8') # 본인 pc에 저장된 파일 경로 입력 필수!
     source_code = HtmlFile.read() 
     print(source_code)
     components.html(source_code, width=1200, height=800,  scrolling=False)
