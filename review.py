@@ -1,4 +1,4 @@
-pip install --upgrade pip (cmd에서 실행) # 구현하기 전 필요한 설치 과정(1)
+# !pip install --upgrade pip (cmd에서 실행) # 구현하기 전 필요한 설치 과정(1)
 pip install streamlit_folium # 구현하기 전 필요한 설치 과정(2)
 pip install geopandas
 # 구글드라이브에 있는 png, xlsx, html 파일을 모두 다운받아 작업할 경로에 모두 저장한다!
